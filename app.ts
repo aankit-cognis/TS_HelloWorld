@@ -52,21 +52,57 @@
 
 //TUPLES
 
-let person: {
-  name: string;
-  age: number;
-  departments: string[];
-  role: [number, string][];
-} = {
-  name: "John",
-  age: 25,
-  departments: ["Computers", "Physics"],
-  role: [[5, "Read_Only"]],
+// let person: {
+//   name: string;
+//   age: number;
+//   departments: string[];
+//   role: [number, string][];
+// } = {
+//   name: "John",
+//   age: 25,
+//   departments: ["Computers", "Physics"],
+//   role: [[5, "Read_Only"]],
+// };
+
+// person.role = [
+//   [32, "Registered User"],
+//   [11, "Normal User"],
+// ];
+// console.log(person);
+// console.log(person);
+
+//Admin - 0 - 'ADMIN'
+//Public User - 1 - "PUBLIC_USER"
+//Registered User - 20 -  "REGISTERED_USER"
+//----------------------------
+
+enum Role {
+  ADMINISTRATOR = "admin",
+  PUBLIC_USER = 30,
+  REGISTERED_USER = 40,
+}
+
+let rahul = {
+  name: "Rahul",
+  role: Role.ADMINISTRATOR,
 };
 
-person.role = [
-  [32, "Registered User"],
-  [11, "Normal User"],
-];
-console.log(person);
-console.log(person);
+if (rahul.role == Role.ADMINISTRATOR) {
+  console.log("Rahuls is an Admin");
+} else if (rahul.role == Role.REGISTERED_USER) {
+  console.log("Rahuls is an Registered User");
+} else if (rahul.role == Role.PUBLIC_USER) {
+  console.log("Rahuls is an Public User");
+}
+
+// let bar: Role = Role.ADMINISTRATOR;
+// if (bar === Role.PUBLIC_USER) {
+// }
+
+let foo: number | string;
+
+if (typeof foo == "string") {
+  console.log("String", foo);
+} else if (typeof foo == "number") {
+  console.log("String", foo);
+}
