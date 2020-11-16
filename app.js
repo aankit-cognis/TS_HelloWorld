@@ -1,14 +1,13 @@
 class Department {
-    constructor(departmentName, age) {
+    constructor(departmentName, address) {
         this.departmentName = departmentName;
-        this.age = age;
+        this.address = address;
         this.employees = [];
     }
     describe() {
         console.log("The department name is " + this.departmentName);
     }
     addEmployee(emp) {
-        //this.departmentName = "New Department Name";
         this.employees.push(emp);
     }
     printEmployeeInformation() {
@@ -16,11 +15,21 @@ class Department {
         console.log("Employyes - ", ...this.employees);
     }
 }
-let accounts = new Department("Computer Science", 89);
-accounts.describe();
-accounts.printEmployeeInformation();
-accounts.describe();
-//accounts.employees.push("Swagat", "Rahul");
-accounts.addEmployee("Swagat");
-accounts.addEmployee("Rahul");
-accounts.printEmployeeInformation();
+class ITDepartment extends Department {
+    constructor(address, reports = []) {
+        super("IT Department", address);
+        this.reports = reports;
+    }
+    addReports(report) {
+        this.reports.push(report);
+    }
+}
+let itDepartment = new ITDepartment("Kolkata");
+itDepartment.describe();
+itDepartment.addEmployee("Rahul");
+itDepartment.addEmployee("Rohit");
+//itDepartment.reports.push("Custom Report");
+itDepartment.addReports("Custom Report");
+itDepartment.addReports("Monthly Report");
+itDepartment.printEmployeeInformation();
+console.log("IT DEPARTMENT-", itDepartment);
