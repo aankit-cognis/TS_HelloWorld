@@ -1,30 +1,26 @@
-// function add(a: number, b: number): number {
-//   return a + b;
-// }
-// function add(a: string, b: string): string {
-//   return a + b;
-// }
-// let hobbies = ["swimming", "reading", "music"];
-// let activeHobbies = ["Dancing"];
-// // hobbies.forEach((h) => activeHobbies.push(h));
-// activeHobbies.push(...hobbies);
-// console.log(activeHobbies);
-// let person = {
-//   name: "John",
-//   age: 25,
-// };
-// let p = { ...person };
-// p.age = 30;
-// console.log("Person", person.age); //25
-// console.log("P", p.age); //30
-function add(n1) {
-    var numbers = [];
-    for (var _i = 1; _i < arguments.length; _i++) {
-        numbers[_i - 1] = arguments[_i];
+class Department {
+    constructor(departmentName, age) {
+        this.departmentName = departmentName;
+        this.age = age;
+        this.employees = [];
     }
-    console.log(n1);
-    console.log(numbers);
-    return (numbers.reduce(function (prevValue, currentValue) { return prevValue + currentValue; }, 0) +
-        n1);
+    describe() {
+        console.log("The department name is " + this.departmentName);
+    }
+    addEmployee(emp) {
+        //this.departmentName = "New Department Name";
+        this.employees.push(emp);
+    }
+    printEmployeeInformation() {
+        console.log("Total No of Employees - ", this.employees.length);
+        console.log("Employyes - ", ...this.employees);
+    }
 }
-console.log(add(20, 30, 40, 50, 60));
+let accounts = new Department("Computer Science", 89);
+accounts.describe();
+accounts.printEmployeeInformation();
+accounts.describe();
+//accounts.employees.push("Swagat", "Rahul");
+accounts.addEmployee("Swagat");
+accounts.addEmployee("Rahul");
+accounts.printEmployeeInformation();
